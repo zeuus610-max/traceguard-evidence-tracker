@@ -1,6 +1,17 @@
 # TraceGuard — Digital Evidence Tracker
 
-TraceGuard is a local full stack prototype based on the Digital Crime Investigation and Evidence Tracker presentation. It focuses on organizing case and evidence metadata, recording authorized custody events, and keeping a time-stamped activity history.
+TraceGuard is a full stack web app based on the Digital Crime Investigation and Evidence Tracker presentation. It organizes case and evidence metadata, records authorized custody events, and keeps a time-stamped activity history.
+
+## Open the website
+
+Visit the hosted app at [traceguard-public-demo.onrender.com](https://traceguard-public-demo.onrender.com). Visitors can use the website directly; no Terminal, local server, or API setup is needed.
+
+Choose **Enter workspace** and use the read-only demo account:
+
+- Email: `viewer@traceguard.local`
+- Password: `TraceGuard!2026`
+
+The public demo contains fictional sample records. It is read-only, so visitors can browse but cannot add or change records. On Render's free service, the app may take a little time to wake after inactivity, and sample data can reset when the service restarts. Do not enter real or sensitive case information.
 
 The workspace does not upload or store evidence files, access devices or accounts, or perform forensic extraction.
 
@@ -34,7 +45,7 @@ All accounts use the password `TraceGuard!2026`:
 | Investigator | `investigator@traceguard.local` | Create, edit, and view records |
 | Viewer | `viewer@traceguard.local` | Read-only access |
 
-The demo credentials are for local evaluation only. This prototype uses in-memory sessions, so signing out or restarting the API ends active sessions. The database can be moved by setting `TRACEGUARD_DB`.
+These credentials are for local evaluation. The hosted public demo seeds only the read-only viewer account. Sessions are held in memory, so signing out or restarting the API ends active sessions. The database location can be changed with `TRACEGUARD_DB`.
 
 ## Included modules
 
@@ -52,6 +63,4 @@ Demo records are fictional. This is a class-project prototype, not a certified e
 
 The Docker image builds the React frontend and serves it and the FastAPI API from one web service. `render.yaml` configures a free Render preview in read-only demo mode. That mode seeds a viewer account only, so visitors can browse the sample records but cannot create or change records.
 
-The free preview uses temporary storage and may sleep after inactivity. Its fictional sample data is reseeded after a restart; it is not suitable for real or long-lived case data. A durable deployment needs managed database storage and private user provisioning.
-
-To deploy, put this folder in a private GitHub repository, sign in to Render, connect that repository, and create a new Blueprint from `render.yaml`. Render will provide a public `onrender.com` address after its first build.
+The hosted public demo is available at [traceguard-public-demo.onrender.com](https://traceguard-public-demo.onrender.com). Its fictional sample data is reseeded after a restart; it is not suitable for real or long-lived case data. A durable deployment needs managed database storage and private user provisioning.
